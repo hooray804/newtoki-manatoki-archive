@@ -1,0 +1,137 @@
+<html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 종료 안내 - 뉴토끼/마나토끼/북토끼</title>
+    <style>
+        :root {
+            --primary-color: #374151;
+            --danger-color: #dc2626;
+            --bg-color: #f9fafb;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        #main-container {
+            max-width: 600px;
+            width: 90%;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+            color: #111827;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            word-break: keep-all;
+        }
+
+        .content {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 30px;
+            text-align: left;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 25px;
+        }
+
+        .notice-box {
+            background-color: #fef2f2;
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-top: 40px;
+        }
+
+        /* 404 시뮬레이션 스타일 */
+        .not-found {
+            display: none;
+            text-align: center;
+        }
+        .not-found h1 { font-size: 80px; margin: 0; color: #d1d5db; }
+    </style>
+</head>
+<body>
+
+<div id="main-container">
+    <div id="announcement">
+        <h1 class="title">뉴토끼/마나토끼/북토끼<br><span style="color: #dc2626">서비스 종료</span></h1>
+
+        <div class="content">
+            <p>그동안 서비스를 이용해주신 모든 회원님께 깊은 감사의 말씀을 드립니다.</p>
+            <p><strong>[데이터 파기 안내]</strong><br>
+                서비스 이용 과정에서 생성된 모든 데이터는 일괄 삭제됩니다.</p>
+
+            <p><strong>[사칭 사이트 주의]</strong><br>
+                뉴토끼/마나토끼/북토끼는 향후 서비스를 재개할 계획이 전혀 없습니다. 이후 유사한 이름을 사용하는 모든 사이트는 <strong>본 서비스와 무관한 사칭 사이트</strong>이오니 주의하시기 바랍니다.</p>
+        </div>
+
+        <div class="notice-box">
+            <strong>안내 기간:</strong> 본 페이지는 금일 자정까지 유지된 후 자동으로 폐쇄됩니다.
+        </div>
+
+    </div>
+
+    <div id="error-page" class="not-found">
+        <h1>404</h1>
+        <p>요청하신 페이지를 찾을 수 없습니다.</p>
+    </div>
+</div>
+
+<script>
+    /**
+     * 설정: 서비스 종료 안내가 끝나는 시점을 설정하세요.
+     * 형식: 'YYYY-MM-DDTHH:mm:ss' (ISO 8601)
+     */
+    const expiryDate = new Date('2026-04-27T23:59:59');
+
+    function checkExpiry() {
+        const now = new Date();
+        const announcement = document.getElementById('announcement');
+        const errorPage = document.getElementById('error-page');
+
+        if (now > expiryDate) {
+            // 24시간 경과 시: 안내 문구 삭제 및 404 표시
+            announcement.style.display = 'none';
+            errorPage.style.display = 'block';
+            document.title = "404 Not Found";
+        }
+    }
+
+    // 페이지 로드 시 즉시 확인
+    checkExpiry();
+
+    // 1분마다 체크 (사용자가 페이지를 열어두었을 경우 대비)
+    setInterval(checkExpiry, 60000);
+</script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;2c460ae6efaf496fb565448fbd2dbad0&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+</body></html>
